@@ -19,7 +19,7 @@ export default function SavedPage() {
       type: 'house',
       featured: false,
       daysOnMarket: 12,
-      image: 'https://readdy.ai/api/search-image?query=Beautiful%20Victorian%20style%20house%20exterior%20with%20classic%20architecture%2C%20bay%20windows%2C%20ornate%20details%2C%20front%20porch%2C%20well-maintained%20garden%2C%20traditional%20charm%2C%20historic%20neighborhood%20setting%2C%20brick%20facade%2C%20wooden%20elements&width=400&height=300&seq=2&orientation=landscape',
+      images: ['https://readdy.ai/api/search-image?query=Beautiful%20Victorian%20style%20house%20exterior%20with%20classic%20architecture%2C%20bay%20windows%2C%20ornate%20details%2C%20front%20porch%2C%20well-maintained%20garden%2C%20traditional%20charm%2C%20historic%20neighborhood%20setting%2C%20brick%20facade%2C%20wooden%20elements&width=400&height=300&seq=2&orientation=landscape'],
       savedDate: '3 days ago'
     },
     {
@@ -33,7 +33,7 @@ export default function SavedPage() {
       type: 'townhouse',
       featured: false,
       daysOnMarket: 18,
-      image: 'https://readdy.ai/api/search-image?query=Charming%20townhouse%20exterior%20with%20brick%20facade%2C%20small%20front%20garden%2C%20traditional%20steps%2C%20window%20boxes%20with%20flowers%2C%20tree-lined%20street%2C%20historic%20neighborhood%20character%2C%20cozy%20residential%20setting%2C%20urban%20village%20atmosphere&width=400&height=300&seq=4&orientation=landscape',
+      images: ['https://readdy.ai/api/search-image?query=Charming%20townhouse%20exterior%20with%20brick%20facade%2C%20small%20front%20garden%2C%20traditional%20steps%2C%20window%20boxes%20with%20flowers%2C%20tree-lined%20street%2C%20historic%20neighborhood%20character%2C%20cozy%20residential%20setting%2C%20urban%20village%20atmosphere&width=400&height=300&seq=4&orientation=landscape'],
       savedDate: '1 week ago'
     }
   ];

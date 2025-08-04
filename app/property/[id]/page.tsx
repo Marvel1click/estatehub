@@ -11,6 +11,11 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
-  return <PropertyDetail propertyId={params.id} />;
+interface PageProps {
+  params: Promise<{ id: string }>; // params is now a Promise
+}
+
+export default async function PropertyPage({ params }: PageProps) {
+  const { id } = await params; // Await the params
+  return <PropertyDetail propertyId={id} />;
 }

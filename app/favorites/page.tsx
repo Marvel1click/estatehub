@@ -17,7 +17,7 @@ export default function FavoritesPage() {
       type: 'apartment',
       featured: true,
       daysOnMarket: 5,
-      image: 'https://readdy.ai/api/search-image?query=Modern%20luxury%20apartment%20interior%20with%20floor-to-ceiling%20windows%20overlooking%20city%20skyline%2C%20contemporary%20furniture%2C%20hardwood%20floors%2C%20open%20concept%20living%20space%2C%20neutral%20color%20palette%2C%20natural%20lighting%2C%20minimalist%20design%2C%20urban%20living%20at%20its%20finest&width=400&height=300&seq=1&orientation=landscape',
+      images: ['https://readdy.ai/api/search-image?query=Modern%20luxury%20apartment%20interior%20with%20floor-to-ceiling%20windows%20overlooking%20city%20skyline%2C%20contemporary%20furniture%2C%20hardwood%20floors%2C%20open%20concept%20living%20space%2C%20neutral%20color%20palette%2C%20natural%20lighting%2C%20minimalist%20design%2C%20urban%20living%20at%20its%20finest&width=400&height=300&seq=1&orientation=landscape'],
       addedToFavorites: '2 days ago'
     },
     {
@@ -31,7 +31,7 @@ export default function FavoritesPage() {
       type: 'condo',
       featured: true,
       daysOnMarket: 8,
-      image: 'https://readdy.ai/api/search-image?query=Luxury%20penthouse%20interior%20with%20panoramic%20city%20views%2C%20marble%20countertops%2C%20high-end%20appliances%2C%20spacious%20living%20room%2C%20elegant%20furnishings%2C%20floor-to-ceiling%20windows%2C%20sophisticated%20design%2C%20premium%20finishes%2C%20modern%20luxury%20living&width=400&height=300&seq=3&orientation=landscape',
+      images: ['https://readdy.ai/api/search-image?query=Luxury%20penthouse%20interior%20with%20panoramic%20city%20views%2C%20marble%20countertops%2C%20high-end%20appliances%2C%20spacious%20living%20room%2C%20elegant%20furnishings%2C%20floor-to-ceiling%20windows%2C%20sophisticated%20design%2C%20premium%20finishes%2C%20modern%20luxury%20living&width=400&height=300&seq=3&orientation=landscape'],
       addedToFavorites: '5 days ago'
     },
     {
@@ -45,7 +45,7 @@ export default function FavoritesPage() {
       type: 'condo',
       featured: true,
       daysOnMarket: 3,
-      image: 'https://readdy.ai/api/search-image?query=Stunning%20waterfront%20condominium%20with%20floor-to-ceiling%20windows%2C%20harbor%20views%2C%20modern%20interior%20design%2C%20open%20floor%20plan%2C%20high-end%20finishes%2C%20balcony%20overlooking%20water%2C%20contemporary%20furniture%2C%20luxury%20amenities%2C%20waterfront%20living&width=400&height=300&seq=5&orientation=landscape',
+      images: ['https://readdy.ai/api/search-image?query=Stunning%20waterfront%20condominium%20with%20floor-to-ceiling%20windows%2C%20harbor%20views%2C%20modern%20interior%20design%2C%20open%20floor%20plan%2C%20high-end%20finishes%2C%20balcony%20overlooking%20water%2C%20contemporary%20furniture%2C%20luxury%20amenities%2C%20waterfront%20living&width=400&height=300&seq=5&orientation=landscape'],
       addedToFavorites: '1 week ago'
     }
   ]);
@@ -110,7 +110,7 @@ export default function FavoritesPage() {
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                     }`}
                   >
-                    <i className="ri-grid-line w-4 h-4 flex items-center justify-center mr-1 inline-block"></i>
+                    <i className="ri-grid-line w-4 h-4 flex items-center justify-center mr-1 "></i>
                     Grid
                   </button>
                   <button
@@ -121,7 +121,7 @@ export default function FavoritesPage() {
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                     }`}
                   >
-                    <i className="ri-list-unordered w-4 h-4 flex items-center justify-center mr-1 inline-block"></i>
+                    <i className="ri-list-unordered w-4 h-4 flex items-center justify-center mr-1 "></i>
                     List
                   </button>
                 </div>
@@ -151,7 +151,7 @@ export default function FavoritesPage() {
                   <div key={property.id} className="bg-white rounded-lg shadow-sm border p-6">
                     <div className="flex items-center space-x-6">
                       <img
-                        src={property.image}
+                        src={property.images[0]}
                         alt={property.title}
                         className="w-24 h-24 object-cover rounded-lg object-top"
                       />

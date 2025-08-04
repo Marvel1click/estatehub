@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal } from 'react';
 import Header from '@/components/Header';
 import PriceComparison from '@/components/PriceComparison';
 import Footer from '@/components/Footer';
@@ -388,7 +388,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 </button>
 
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                  {images.map((_, index) => (
+                  {images.map((_: string, index: number) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImageIndex(index)}
@@ -483,7 +483,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                     <div>
                       <h2 className="text-xl font-semibold mb-4">Features & Amenities</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {property.features.map((feature, index) => (
+                        {property.features.map((feature: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, index: Key | null | undefined) => (
                           <div key={index} className="flex items-center">
                             <i className="ri-check-line w-4 h-4 flex items-center justify-center text-green-500 mr-2"></i>
                             <span className="text-gray-600">{feature}</span>
