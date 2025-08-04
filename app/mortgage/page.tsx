@@ -251,7 +251,7 @@ export default function MortgagePage() {
                       <option>Good (700-749)</option>
                       <option>Fair (650-699)</option>
                       <option>Poor (600-649)</option>
-                      <option>Bad (Below 600)</option>
+                      <option>Bad (Below 600)</option> 
                     </select>
                   </div>
                   
