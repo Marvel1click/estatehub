@@ -1,8 +1,14 @@
-
 'use client';
 
 import Link from 'next/link';
 import { useState } from 'react';
+
+const navItems = [
+  { href: '/', label: 'Properties' },
+  { href: '/agents', label: 'Agents' },
+  { href: '/mortgage', label: 'Mortgage' },
+  { href: '/sell', label: 'Sell' },
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,60 +16,65 @@ export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm border-b">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-600" style={{ fontFamily: 'Pacifico, serif' }}>
-                EstateHub
-              </span>
-            </Link>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 shadow-sm shadow-slate-950/[0.03] backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between gap-6">
+          <Link href="/" className="flex items-center gap-3" aria-label="EstateHub home">
+            <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-950 text-white shadow-lg shadow-slate-950/15">
+              <i className="ri-building-4-line flex h-5 w-5 items-center justify-center text-xl"></i>
+            </span>
+            <span
+              className="text-2xl font-semibold tracking-[-0.04em] text-slate-950"
+              style={{ fontFamily: 'var(--font-pacifico)' }}
+            >
+              EstateHub
+            </span>
+          </Link>
 
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-600 cursor-pointer whitespace-nowrap">
-              Properties
-            </Link>
-            <Link href="/agents" className="text-gray-700 hover:text-blue-600 cursor-pointer whitespace-nowrap">
-              Agents
-            </Link>
-            <Link href="/mortgage" className="text-gray-700 hover:text-blue-600 cursor-pointer whitespace-nowrap">
-              Mortgage
-            </Link>
-            <Link href="/sell" className="text-gray-700 hover:text-blue-600 cursor-pointer whitespace-nowrap">
-              Sell
-            </Link>
+          <nav className="hidden items-center rounded-full border border-slate-200 bg-slate-50 p-1 md:flex">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full px-4 py-2 text-sm font-semibold text-slate-600 transition hover:bg-white hover:text-slate-950 hover:shadow-sm"
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
-          <div className="flex items-center space-x-4">
-            <Link href="/favorites" className="hidden md:inline-flex items-center px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer whitespace-nowrap">
-              <i className="ri-heart-line w-4 h-4 flex items-center justify-center mr-2"></i>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/favorites"
+              className="hidden h-11 items-center justify-center rounded-full border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:text-slate-950 md:inline-flex"
+            >
+              <i className="ri-heart-line mr-2 flex h-4 w-4 items-center justify-center"></i>
               Favourites
             </Link>
-            
+
             {isLoggedIn ? (
               <div className="relative">
-                <button 
+                <button
+                  type="button"
                   onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                  className="flex items-center space-x-2 cursor-pointer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-700 text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-blue-800"
+                  aria-label="Open account menu"
                 >
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                    <i className="ri-user-line text-white w-4 h-4 flex items-center justify-center"></i>
-                  </div>
+                  <i className="ri-user-line flex h-5 w-5 items-center justify-center"></i>
                 </button>
-                
+
                 {isUserMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
-                    <Link href="/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                  <div className="absolute right-0 mt-3 w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-950/10">
+                    <Link href="/profile" className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
                       Profile
                     </Link>
-                    <Link href="/saved" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
+                    <Link href="/saved" className="block rounded-xl px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50">
                       Saved Properties
                     </Link>
-                    <button 
+                    <button
+                      type="button"
                       onClick={() => setIsLoggedIn(false)}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                      className="block w-full rounded-xl px-4 py-3 text-left text-sm font-medium text-slate-700 hover:bg-slate-50"
                     >
                       Sign Out
                     </button>
@@ -71,44 +82,57 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <Link href="/login" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap">
+              <Link
+                href="/login"
+                className="hidden h-11 items-center justify-center rounded-full bg-blue-700 px-5 text-sm font-semibold text-white shadow-lg shadow-blue-900/20 transition hover:-translate-y-0.5 hover:bg-blue-800 sm:inline-flex"
+              >
                 Sign In
               </Link>
             )}
 
-            <button 
+            <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 cursor-pointer"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50 md:hidden"
+              aria-label="Toggle mobile menu"
             >
-              <i className="ri-menu-line w-6 h-6 flex items-center justify-center"></i>
+              <i className={`${isMenuOpen ? 'ri-close-line' : 'ri-menu-line'} flex h-5 w-5 items-center justify-center text-xl`}></i>
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
-                Properties
-              </Link>
-              <Link href="/agents" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
-                Agents
-              </Link>
-              <Link href="/mortgage" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
-                Mortgage
-              </Link>
-              <Link href="/sell" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
-                Sell
-              </Link>
-              <Link href="/favorites" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
+          <div className="pb-5 md:hidden">
+            <nav className="rounded-3xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-950/5">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50"
+                >
+                  {item.label}
+                  <i className="ri-arrow-right-up-line flex h-4 w-4 items-center justify-center text-slate-400"></i>
+                </Link>
+              ))}
+              <Link
+                href="/favorites"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold text-slate-700 hover:bg-slate-50"
+              >
                 Favourites
+                <i className="ri-heart-line flex h-4 w-4 items-center justify-center text-slate-400"></i>
               </Link>
               {!isLoggedIn && (
-                <Link href="/login" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">
+                <Link
+                  href="/login"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mt-2 flex h-12 items-center justify-center rounded-2xl bg-blue-700 px-4 text-sm font-semibold text-white"
+                >
                   Sign In
                 </Link>
               )}
-            </div>
+            </nav>
           </div>
         )}
       </div>

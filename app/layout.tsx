@@ -20,9 +20,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Estate Hub",
+  title: "EstateHub | Premium UK Property Search",
   description:
-    "EstateHub is your comprehensive platform for discovering, comparing, and managing real estate listings. Find your dream home, connect with agents, estimate property values, and explore mortgage options—all in one place.",
+    "Search verified UK homes, compare property value, connect with vetted local agents, and plan your mortgage with EstateHub.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

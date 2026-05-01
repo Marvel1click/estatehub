@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Header from '@/components/Header';
 import PropertyCard from '@/components/PropertyCard';
+import Link from 'next/link';
 
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState([
@@ -68,7 +69,7 @@ export default function FavoritesPage() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">My Favorites</h1>
-            <p className="text-gray-600">Properties you've saved for later</p>
+            <p className="text-gray-600">Properties you have saved for later</p>
           </div>
           
           {favorites.length > 0 && (
@@ -88,13 +89,13 @@ export default function FavoritesPage() {
             </div>
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">No favorites yet</h2>
             <p className="text-gray-600 mb-8">Start browsing properties and save your favorites to view them here</p>
-            <a
+            <Link
               href="/"
               className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
             >
               <i className="ri-search-line w-5 h-5 flex items-center justify-center mr-2"></i>
               Browse Properties
-            </a>
+            </Link>
           </div>
         ) : (
           <>

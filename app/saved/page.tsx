@@ -201,7 +201,7 @@ export default function SavedPage() {
                       <i className="ri-user-line w-12 h-12 flex items-center justify-center text-gray-400"></i>
                     </div>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4">No saved agents</h2>
-                    <p className="text-gray-600">Save agents you're interested in working with</p>
+                    <p className="text-gray-600">Save agents you are interested in working with</p>
                   </div>
                 ) : (
                   <div className="space-y-4">

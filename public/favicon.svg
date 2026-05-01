@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="EstateHub">
+  <rect width="64" height="64" rx="18" fill="#0f172a"/>
+  <path d="M18 46V23.5L32 14l14 9.5V46h-9.5V34.5h-9V46H18Z" fill="#ffffff"/>
+  <path d="M24 27h5v5h-5v-5Zm11 0h5v5h-5v-5Z" fill="#1d4ed8"/>
+</svg>
