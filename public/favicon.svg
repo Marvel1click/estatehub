@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="EstateHub">
-  <rect width="64" height="64" rx="18" fill="#0f172a"/>
-  <path d="M18 46V23.5L32 14l14 9.5V46h-9.5V34.5h-9V46H18Z" fill="#ffffff"/>
-  <path d="M24 27h5v5h-5v-5Zm11 0h5v5h-5v-5Z" fill="#1d4ed8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#163c35"/>
+  <path d="M14 28 32 13l18 15v23H14Z" fill="none" stroke="#f6f1e7" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M23 51V31h18v20M23 40h18" fill="none" stroke="#e88b65" stroke-width="4" stroke-linejoin="round"/>
 </svg>

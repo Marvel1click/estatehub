@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: estatehub
+    runtime: static
+    repo: https://github.com/Marvel1click/estatehub
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./out
+    autoDeployTrigger: commit
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

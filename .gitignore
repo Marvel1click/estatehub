@@ -1,2 +1,6 @@
 node_modules/
-.next-estatehub/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.DS_Store

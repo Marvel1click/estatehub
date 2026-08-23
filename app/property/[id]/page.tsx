@@ -1,21 +1,26 @@
-import PropertyDetail from './PropertyDetail';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getProperty, properties } from "@/lib/data";
+import PropertyDetail from "./PropertyDetail";
 
-export async function generateStaticParams() {
-  return [
-    { id: '1' },
-    { id: '2' },
-    { id: '3' },
-    { id: '4' },
-    { id: '5' },
-    { id: '6' },
-  ];
+export function generateStaticParams() {
+  return properties.map((property) => ({ id: property.id }));
 }
 
-interface PageProps {
-  params: Promise<{ id: string }>; // params is now a Promise
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const property = getProperty(id);
+  if (!property) return { title: "Illustrative home not found" };
+  return {
+    title: property.name,
+    description: `${property.summary} Fictional EstateHub listing for interface demonstration only.`,
+    openGraph: { images: [{ url: property.image, width: 1800, height: 1200 }] },
+  };
 }
 
-export default async function PropertyPage({ params }: PageProps) {
-  const { id } = await params; // Await the params
-  return <PropertyDetail propertyId={id} />;
+export default async function PropertyPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const property = getProperty(id);
+  if (!property) notFound();
+  return <PropertyDetail property={property} />;
 }
